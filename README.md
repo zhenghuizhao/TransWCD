@@ -10,6 +10,7 @@
 
 ![TransWCD-DL](./tutorials/TransWCD-DL.png)
 
+
 ## Abastract
 
 > Weakly-supervised change detection (WSCD) aims to detect pixel-level changes with only image-level annotations. Owing to its label efficiency, WSCD is drawing increasing attention recently. However, current WSCD methods often encounter the challenge of change missing and fabricating, i.e., the inconsistency between image-level annotations and pixel-level predictions. Specifically, change missing refer to the situation that the WSCD model fails to predict any changed pixels, even though the image-level label indicates changed, and vice versa for change fabricating. To address this challenge, in this work, we leverage global-scale and local-scale priors in WSCD and propose two components: a Dilated Prior (DP) decoder and a Label Gated (LG) constraint. The DP decoder decodes samples with the changed image-level label, skips samples with the unchanged label, and replaces them with an all-unchanged pixel-level label. The LG constraint is derived from the correspondence between changed representations and image-level labels, penalizing the model when it mispredicts the change status. Additionally, we develop TransWCD, a simple yet powerful transformer-based model, showcasing the potential of weakly-supervised learning in change detection. By integrating the DP decoder and LG constraint into TransWCD, we form TransWCD-DL. Our proposed TransWCD and TransWCD-DL achieve significant +6.33% and +9.55% F1 score improvements over the state-of-the-art methods on the WHU-CD dataset, respectively. Some performance metrics even exceed several fully-supervised change detection (FSCD) competitors.
@@ -62,12 +63,6 @@ You can modify WHU-CD implementation settings in `configs/WHU.yaml`, and so on f
 python test_wcd.py
 ```
 Please remember to modify the corresponding configurations, and the visual results can be found at `vis_results/`
-
-## Trained model
-| TransWCD      |    WHU-CD |  LEVIR-CD |  DSIFN-CD |
-|:--------------|----------:|----------:|----------:|  
-| Single-Stream | [model]() | [model]() | [model]() | 
-| Dual-Stream   | [model]() | [model]() | [model]() | 
 
 
 ### Create and activate conda environment
