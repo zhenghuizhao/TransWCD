@@ -1,6 +1,7 @@
 # TransWCD
 ## Transformer-based Weakly-Supervised Change Detection Baselines
-:notebook_with_decorative_cover: Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853) 
+## Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853) 
+
 
 :speech_balloon: TransWCD: transformer-based weakly-supervised change detection (WSCD) baselines, encoder-only efficient models, including single-stream and Siamese dual-stream schemes.
 
@@ -9,10 +10,6 @@
 :speech_balloon: TransWCD-DL: a dilated prior (DP) decoder and label-gated (LG) constraint are integrated, based on WSCD priors.
 
 ![TransWCD-DL](./tutorials/TransWCD-DL.png)
-
-## Update
-| :zap:        | Higher-performing models on the DSIFN-CD and LEVIR-CD datasets compared to those mentioned in our paper have been released. |
-|---------------|:--------------------------------------------------------------------|
 
 
 ## Abastract
@@ -35,7 +32,7 @@ WSCD data set with image-level labels:
 └─list
 ```
 
-### 2. Download Pre-trained weights
+### 2. Download Pre-trained Weights
 
 Download the pre-trained weights from [SegFormer](https://github.com/NVlabs/SegFormer) and move them to `pretrained/`.
 
@@ -63,14 +60,8 @@ python test.py
 ```
 Please remember to modify the corresponding configurations in `test.py`, and the visual results can be found at `results/`
 
-## Trained model (F1 score)
-| TransWCD      |    WHU-CD |  LEVIR-CD |  DSIFN-CD |
-|:--------------|----------:|----------:|----------:|  
-| Single-Stream | [67.81/model]() | [model]() | [60.38/model]() | 
-| Dual-Stream   | [68.73/model]() | [model]() | [62.24/model]() | 
 
-
-### Create and activate conda environment
+### Create and Activate Conda Environment
 
 ```bash
 conda create --name transwcd python=3.6
