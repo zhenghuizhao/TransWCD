@@ -1,14 +1,18 @@
 # TransWCD
-## Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection (Transformer-based)
+## Transformer-based Weakly-Supervised Change Detection Baselines
 :notebook_with_decorative_cover: Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853) 
 
-:speech_balloon: TransWCD: transformer-based weakly-supervised change detection (WSCD) efficient models, encoder-only and could serve as baselines, including single-stream and Siamese dual-stream schemes.
+:speech_balloon: TransWCD: transformer-based weakly-supervised change detection (WSCD) baselines, encoder-only efficient models, including single-stream and Siamese dual-stream schemes.
 
 ![TransWCD](./tutorials/TransWCD.png)
 ###
 :speech_balloon: TransWCD-DL: a dilated prior (DP) decoder and label-gated (LG) constraint are integrated, based on WSCD priors.
 
 ![TransWCD-DL](./tutorials/TransWCD-DL.png)
+
+## Update
+| :zap:        | Higher-performing models on the DSIFN-CD and LEVIR-CD datasets compared to those mentioned in our paper have been released. |
+|---------------|:--------------------------------------------------------------------|
 
 
 ## Abastract
@@ -46,23 +50,24 @@ pip install -r requirments.txt
 
 ### Train
 ```bash
-# train on WHU-CD
-python train_WHU.py
+# train 
+python train_transwcd.py
 
-# train on LEVIR-CD
-python train_LEVIR.py
-
-# train on DSIFN-CD
-python train_DSIFN.py
 ```
-You can modify WHU-CD implementation settings in `configs/WHU.yaml`, and so on for DSIFN-CD and LEVIR-CD.
+You can modify the corresponding implementation settings `WHU.yaml`, `LEVIR.yaml`, and `DSIFN.yaml` in `train_transwcd.py` for different datasets.
 
 
 ### Test
 ```bash
-python test_wcd.py
+python test.py
 ```
-Please remember to modify the corresponding configurations, and the visual results can be found at `vis_results/`
+Please remember to modify the corresponding configurations in `test.py`, and the visual results can be found at `results/`
+
+## Trained model (F1 score)
+| TransWCD      |    WHU-CD |  LEVIR-CD |  DSIFN-CD |
+|:--------------|----------:|----------:|----------:|  
+| Single-Stream | [67.81/model]() | [model]() | [60.38/model]() | 
+| Dual-Stream   | [68.73/model]() | [model]() | [61.24/model]() | 
 
 
 ### Create and activate conda environment
