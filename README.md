@@ -67,7 +67,7 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 | TransWCD      |    WHU-CD |  LEVIR-CD |  DSIFN-CD |
 |:--------------|----------:|----------:|----------:|  
 | Single-Stream | [67.81/model]() | [model]() | [60.38/model]() | 
-| Dual-Stream   | [68.73/model]() | [model]() | [61.24/model]() | 
+| Dual-Stream   | [68.73/model]() | [model]() | [62.24/model]() | 
 
 
 ### Create and activate conda environment
