@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0ac6161-7860-4c89-81e7-87689e73b87f" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transwcd/configs/LEVIR.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/transwcd/configs/LEVIR.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2SrVo1qCRV9Ycc4aQRW8IHHSVCs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "last_opened_file_path": "D:/ZZH Learning/Codes & Datesets/Codes/Completed codes/TransWCD/dual-stream",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\dual-stream" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\dual-stream\configs" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\tutorials" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\dual_stream" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\dual-stream" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\data_and_label_processing" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD\tutorials" />
+      <recent name="D:\ZZH Learning\Codes &amp; Datesets\Codes\Completed codes\TransWCD" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="b0ac6161-7860-4c89-81e7-87689e73b87f" name="变更" comment="" />
+      <created>1689904866494</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689904866494</updated>
+      <workItem from="1689904868936" duration="14448000" />
+      <workItem from="1689947067735" duration="3533000" />
+      <workItem from="1690031387896" duration="1430000" />
+      <workItem from="1690033996012" duration="13773000" />
+      <workItem from="1690102995833" duration="131779000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
