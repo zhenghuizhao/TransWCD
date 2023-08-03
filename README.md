@@ -91,8 +91,6 @@ if it's helpful to your research, please kindly cite. Here is an example BibTeX 
 ```
 
 ## Acknowledgement
-We use the cropped dataset of [BGMix](https://github.com/tsingqguo/bgmix) and [ChangeFormer](https://github.com/wgcban/ChangeFormer).
-and the [pre-trained weights](https://drive.google.com/drive/folders/1b7bwrInTW4VLEm27YawHOAMSMikga2Ia?usp=sharing) from [SegFormer](https://github.com/NVlabs/SegFormer). 
+Thanks to these brilliant works [BGMix](https://github.com/tsingqguo/bgmix), [ChangeFormer](https://github.com/wgcban/ChangeFormer), and [SegFormer](https://github.com/NVlabs/SegFormer)!
 
-Thanks to their brilliant works!
 
