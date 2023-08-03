@@ -73,9 +73,15 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 *Average F1 Score / best model
 
 ##
-## D. Visual Results
+## D. Results
+### Quanlitative Results
 <p align="center">
     <img src="./tutorials/Quanlitative_Results.png" width="85%" height="85%">
+</p>
+
+### Quantitative Results
+<p align="center">
+    <img src="./tutorials/Quantitative_Results.png" width="85%" height="85%">
 </p>
 
 ## Citation
