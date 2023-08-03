@@ -8,7 +8,7 @@ from skimage import io
 if __name__ == "__main__":
     if __name__ == "__main__":
         # crop images
-        image_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD/Images_NoShadow/A'
+        image_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/Images_NoShadow/A'
         save_image_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD_noshadow_256/A'
         # crop labels
         label_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD/GroundTruth'
