@@ -155,7 +155,7 @@ def train(cfg):
     else:
         print("Please choose a baseline structure in /configs/...yaml")
 
-    logging.info('\nNetwork config: \n%s' % (transwcd))
+    #logging.info('\nNetwork config: \n%s' % (transwcd))
     param_groups = transwcd.get_param_groups()
     transwcd.to(device)
 
@@ -194,6 +194,7 @@ def train(cfg):
 
     bkg_cls = torch.ones(size=(cfg.train.batch_size, 1))
 
+    best_F1 = 0.0
     for n_iter in range(cfg.train.max_iters):
 
         try:
@@ -258,11 +259,17 @@ def train(cfg):
 
         if (n_iter + 1) % cfg.train.eval_iters == 0:
             ckpt_name = os.path.join(cfg.work_dir.ckpt_dir, "transwcd_iter_%d.pth" % (n_iter + 1))
-            logging.info('CD Validating...')
+            print('CD Validating...')
             torch.save(transwcd.state_dict(), ckpt_name)
             cam_score, labels = validate(model=transwcd, data_loader=val_loader, cfg=cfg)   # _ 为 labels
-            logging.info(cfg.scheme)
-            logging.info(cam_score)
+            print(cfg.scheme)
+            print(cam_score)
+
+            if  cam_score['f1'][1]> best_F1:
+                best_F1 = cam_score['f1'][1]
+                best_iter = n_iter+1
+            print("[best_iter]:", best_iter)
+            print()
     return True
 
 if __name__ == "__main__":

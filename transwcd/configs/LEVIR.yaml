@@ -10,7 +10,7 @@ dataset:
   name_list_dir: datasets/LEVIR
   num_classes: 2
   crop_size: 256
-  rescale_range: [0.5, 2.0]
+  rescale_range: [1.0, 1.0]
 
 
 work_dir:
@@ -21,7 +21,7 @@ work_dir:
 
 train:
   split: train
-  batch_size: 64
+  batch_size: 8
   max_iters: 50000
   cam_iters: 2000
   eval_iters: 500
@@ -29,7 +29,7 @@ train:
 
 cam:
   bkg_score: 0.45
-  scales: [1, 0.5, 1.5, 2.0]  #[1, 0.5, 1.5]
+  scales: [1, 0.5, 1.5]
 
 val:
   split: val

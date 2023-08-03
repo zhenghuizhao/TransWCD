@@ -16,12 +16,11 @@ from models.model_transwcd import TransWCD_single, TransWCD_dual
 
 parser = argparse.ArgumentParser()
 # LEVIR/DSIFN/WHU.yaml
-parser.add_argument("--config",default='configs/DSIFN.yaml',type=str,
+parser.add_argument("--config",default='configs/LEVIR.yaml',type=str,
                     help="config")
 parser.add_argument("--save_dir", default="./results/WHU", type=str, help="save_dir")
 parser.add_argument("--eval_set", default="val", type=str, help="eval_set")
-parser.add_argument("--scheme", default="transwcd_single", type=str, help="transwcd_dual, transwcd_single, transwcd_dl_dual,transwcd_dl_single")
-parser.add_argument("--model_path", default="/data/zhenghui.zhao/Code/TransWCD/transwcd/results/test_models/transwcd_iter_22500.pth", type=str, help="model_path")
+parser.add_argument("--model_path", default="/data/zhenghui.zhao/Code/TransWCD/transwcd/results/test_models/transwcd_iter_28000.pth", type=str, help="model_path")
 
 parser.add_argument("--pooling", default="gmp", type=str, help="pooling method")
 parser.add_argument("--bkg_score", default=0.45, type=float, help="bkg_score")
@@ -108,14 +107,14 @@ def main(cfg):
         num_classes=cfg.dataset.num_classes,
     )
 
-    if args.scheme == "transwcd_dual":
+    if cfg.scheme == "transwcd_dual":
         transwcd = TransWCD_dual(backbone=cfg.backbone.config,
                                  stride=cfg.backbone.stride,
                                  num_classes=cfg.dataset.num_classes,
                                  embedding_dim=256,
                                  pretrained=True,
                                  pooling=args.pooling, )
-    elif args.scheme == "transwcd_single":
+    elif cfg.scheme == "transwcd_single":
         transwcd = TransWCD_single(backbone=cfg.backbone.config,
                                    stride=cfg.backbone.stride,
                                    num_classes=cfg.dataset.num_classes,
@@ -123,7 +122,7 @@ def main(cfg):
                                    pretrained=True,
                                    pooling=args.pooling, )
     else:
-        print('Please fill in args.scheme!')
+        print('Please fill in cfg.scheme!')
 
     trained_state_dict = torch.load(args.model_path, map_location="cpu")
 
