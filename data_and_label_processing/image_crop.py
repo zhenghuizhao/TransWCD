@@ -8,11 +8,11 @@ from skimage import io
 if __name__ == "__main__":
     if __name__ == "__main__":
         # crop images
-        image_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/Images_NoShadow/A'
-        save_image_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD_noshadow_256/A'
+        image_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/A'
+        save_image_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/A'
         # crop labels
-        label_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD/GroundTruth'
-        save_label_path = '/data/zhenghui.zhao/Dataset/Change Detection/AICD_noshadow_256/label'
+        label_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/GroundTruth'
+        save_label_path = '/data/zhenghui.zhao/Dataset/Change Detection/WHU-CD-256/label'
 
         file_list = os.listdir(image_path)
         inList = natsort.natsorted(file_list)
