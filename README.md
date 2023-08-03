@@ -37,7 +37,7 @@ WSCD dataset with image-level labels:
 
 ### 2. Download Pre-trained Weights
 
-Download the pre-trained weights from [SegFormer](https://github.com/NVlabs/SegFormer) and move them to `pretrained/`.
+Download the pre-trained weights from [SegFormer](https://github.com/NVlabs/SegFormer) and move them to `transwcd/pretrained/`.
 
 ### 3.Create and activate conda environment
 
@@ -61,7 +61,7 @@ You can modify the corresponding implementation settings `WHU.yaml`, `LEVIR.yaml
 # test
 python test.py
 ```
-Please remember to modify the corresponding configurations in `test.py`, and the visual results can be found at `results/`
+Please remember to modify the corresponding configurations in `test.py`, and the visual results can be found at `transwcd/results/`
 
 ##
 ## C. Performance and Best Models
