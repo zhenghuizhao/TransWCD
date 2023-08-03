@@ -67,8 +67,8 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 ## C. Performance and Best Models
 | TransWCD      |    WHU-CD |             LEVIR-CD |             DSIFN-CD |
 |:--------------|----------:|---------------------:|---------------------:|  
-| Single-Stream | 67.81[/best model]() | 51.06[/best model]() | 57.28[/best model]() | 
-| Dual-Stream   | 68.73[/best model]() | 62.55[/best model]() | 59.13[/best model]() | 
+| Single-Stream | 67.81[/best model](https://drive.google.com/file/d/1ZK9aNG-RG26ybLGAu9NqaG3-yPChL4Kx/view?usp=drive_link) | 51.06[/best model](https://drive.google.com/file/d/1z_7e057spJPP4BW_6Ujz8ws-PZ-GWufA/view?usp=drive_link) | 57.28[/best model](https://drive.google.com/file/d/1i9farsfLxDQBUxxfhjjOJz1zNgjavjoI/view?usp=drive_link) | 
+| Dual-Stream   | 68.73[/best model](https://drive.google.com/file/d/1us1TCqkSfjNjuubasXmRN0vBJ2OAI2vl/view?usp=drive_link) | 62.55[/best model](https://drive.google.com/file/d/1cpr3ICsR4Ro5XtWA3I8RzDNzxkp1A_Fz/view?usp=drive_link) | 59.13[/best model](https://drive.google.com/file/d/1oGSlT64WRuzyY1vqmXb1Y55T0VrBJnhn/view?usp=drive_link) | 
 
 *average F1 Score / best model
 
