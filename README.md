@@ -1,5 +1,5 @@
 # TransWCD: Transformer-based Weakly-Supervised Change Detection Baselines
-## :notebook_with_decorative_cover: Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853)
+## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853)
 
 ## Update
 | :zap:        | Higher-performing TransWCD baselines have been released, with F1 score of +2.47 on LEVIR-CD and +5.72 on DSIFN-CD compared to those mentioned in our paper. |
