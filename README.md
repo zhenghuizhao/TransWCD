@@ -74,7 +74,7 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 
 
 ## Citation
-if it's helpful to your research, please kindly cite. Here is an example BibTeX entry:
+If it's helpful to your research, please kindly cite. Here is an example BibTeX entry:
 
 ``` bibtex
 @article{zhao2023exploring,
