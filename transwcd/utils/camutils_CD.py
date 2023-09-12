@@ -2,12 +2,9 @@ import torch
 import torch.nn.functional as F
 
 
-def cam_to_label(cam, cls_label, img_box=None, ignore_mid=False, cfg=None):
+def cam_to_label(cam, img_box=None, ignore_mid=False, cfg=None):
     b, c, h, w = cam.shape
-    cls_label_rep = cls_label.unsqueeze(-1).unsqueeze(-1).repeat([1,1,h,w])
-    valid_cam = cls_label_rep * cam
-    # valid_cam =cam
-    cam_value, _pseudo_label = valid_cam.max(dim=1, keepdim=False)
+    cam_value, _pseudo_label = cam.max(dim=1, keepdim=False)
     _pseudo_label += 1
     _pseudo_label[cam_value<=cfg.cam.bkg_score] = 0
 
@@ -21,7 +18,7 @@ def cam_to_label(cam, cls_label, img_box=None, ignore_mid=False, cfg=None):
     for idx, coord in enumerate(img_box):
         pseudo_label[idx, coord[0]:coord[1], coord[2]:coord[3]] = _pseudo_label[idx, coord[0]:coord[1], coord[2]:coord[3]]
 
-    return valid_cam, pseudo_label
+    return cam, pseudo_label
 
 def multi_scale_cam(model, inputs_A, inputs_B, scales):
     #cam_list = []

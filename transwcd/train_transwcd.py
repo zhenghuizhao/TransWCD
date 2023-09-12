@@ -219,7 +219,7 @@ def train(cfg):
         _cls_labels = torch.cat((bkg_cls, cls_labels), dim=1)
 
         # change classification loss
-        cc_loss = F.multilabel_soft_margin_loss(cls, cls_labels)
+        cc_loss = F.binary_cross_entropy_with_logits(cls, cls_labels)
 
         if n_iter <= cfg.train.cam_iters:
             loss = 1.0 * cc_loss
