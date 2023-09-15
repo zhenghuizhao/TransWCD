@@ -71,8 +71,8 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 | Dual-Stream   | 68.73/[Best model](https://drive.google.com/file/d/1us1TCqkSfjNjuubasXmRN0vBJ2OAI2vl/view?usp=drive_link) | 62.55/[Best model](https://drive.google.com/file/d/1cpr3ICsR4Ro5XtWA3I8RzDNzxkp1A_Fz/view?usp=drive_link) | 59.13/[Best model](https://drive.google.com/file/d/1oGSlT64WRuzyY1vqmXb1Y55T0VrBJnhn/view?usp=drive_link) | 
 
 *Average F1 Score / Best model
+
 On both WHU-CD and LEVIR-CD datasets, the test performance closely matches that of the validation, with differences < 3% F1 score. 
-(A random 10% sample from the WHU-CD training dataset is used as the validation set.)
 
 
 ## Citation
