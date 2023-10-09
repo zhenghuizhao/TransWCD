@@ -3,7 +3,7 @@ backbone:
   stride: [4, 2, 2, 1]
   comments: None
 
-scheme: transwcd_dual #transwcd_single, transwcd_dl_single, transwcd_dl_dual
+scheme: transwcd_dual # transwcd_single, transwcd_dual
 
 dataset:
   root_dir: /data/zhenghui.zhao/Dataset/Change Detection/DSIFN-CD-256
