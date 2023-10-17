@@ -2,7 +2,7 @@ import torch
 import torch.nn.functional as F
 
 
-def cam_to_label(cam, img_box=None, ignore_mid=False, cfg=None):
+def cam_to_label(cam, img_box=None,cls_label, ignore_mid=False, cfg=None):
     b, c, h, w = cam.shape
     cam_value, _pseudo_label = cam.max(dim=1, keepdim=False)
     _pseudo_label += 1
