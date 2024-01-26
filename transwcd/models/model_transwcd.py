@@ -74,8 +74,7 @@ class TransWCD_dual(nn.Module):
         cls_x4 = self.classifier(cls_x4)
         cls_x4 = cls_x4.view(-1, self.num_classes-1)
 
-        _c4 = self.dropout(_c4)     #
-        #pred_enc = self.linear_pred(_c4)
+
         return cls_x4
 
 
@@ -152,8 +151,6 @@ class TransWCD_single(nn.Module):
         cls_x4 = self.classifier(cls_x4)
         cls_x4 = cls_x4.view(-1, self.num_classes-1)
 
-        _c4 = self.dropout(_c4)     #
-        #pred_enc = self.linear_pred(_c4)
         return cls_x4
 
 
