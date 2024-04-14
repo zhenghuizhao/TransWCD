@@ -7,7 +7,7 @@
 ##
 
 ## Abastract <p align="justify">
-<blockquote align="justify">Weakly-supervised change detection (WSCD) aims to detect pixel-level changes with only image-level annotations. Owing to its label efficiency, WSCD is drawing increasing attention recently. However, current WSCD methods often encounter the challenge of change missing and fabricating, i.e., the inconsistency between image-level annotations and pixel-level predictions. Specifically, change missing refers to the situation that the WSCD model fails to predict any changed pixels, even though the image-level label indicates change, and vice versa for change fabricating. To address this challenge, in this work, we leverage global-scale and local-scale priors in WSCD and propose two components: a Dilated Prior (DP) decoder and a Label Gated (LG) constraint. The DP decoder decodes samples with the changed image-level label, skips samples with the unchanged label, and replaces them with an all-unchanged pixel-level label. The LG constraint is derived from the correspondence between changed representations and image-level labels, penalizing the model when it mispredicts the change status. Additionally, we develop TransWCD, a simple yet powerful transformer-based model, showcasing the potential of weakly-supervised learning in change detection. By integrating the DP decoder and LG constraint into TransWCD, we form TransWCD-DL. Our proposed TransWCD and TransWCD-DL achieve significant +6.33% and +9.55% F1 score improvements over the state-of-the-art methods on the WHU-CD dataset, respectively. Some performance metrics even exceed several fully-supervised change detection (FSCD) competitors.Code will be available at this https URL.</blockquote>
+<blockquote align="justify">Weakly-supervised change detection (WSCD) aims to detect pixel-level changes with only image-level (i.e., scene-level) annotations. We develop TransWCD, a simple yet powerful transformer-based model, showcasing the potential of weakly-supervised learning in change detection. 
 </p>
 
 
@@ -16,9 +16,7 @@
     <img src="./tutorials/TransWCD.png" width="75%" height="75%">
 </p>
 
-## :speech_balloon: TransWCD-DL Architecture:
 
-![TransWCD-DL](./tutorials/TransWCD-DL.png)
 
 ##
 ## A. Preparations
