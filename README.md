@@ -1,4 +1,4 @@
-# TransWCD: Transformer-based Weakly-Supervised Change Detection Baselines
+# TransWCD: Transformer-based Weakly-Supervised Change Detection
 ## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853)
 
 ## Update
