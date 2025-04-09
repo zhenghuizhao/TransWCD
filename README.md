@@ -1,5 +1,6 @@
 # TransWCD: Transformer-based Weakly-Supervised Change Detection
-## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853)
+## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853) 
+Accepted to IEEE TGRS as: TransWCD: A Scene-Adaptive Joint-Constrained Framework for Weakly-Supervised Change Detection
 
 ## Update
 | :zap:        | Higher-performing TransWCD baselines have been released, with F1 score of +2.47 on LEVIR-CD and +5.72 on DSIFN-CD compared to those mentioned in our paper. |
@@ -77,6 +78,14 @@ On both WHU-CD and LEVIR-CD datasets, the test performance closely matches that 
 If it's helpful to your research, please kindly cite. Here is an example BibTeX entry:
 
 ``` bibtex
+@article{zhao2025transwcd,
+  title={TransWCD: Scene-Adaptive Joint Constrained Framework for Weakly-Supervised Change Detection},
+  author={Zhao, Zhenghui and Ru, Lixiang and Wu, Chen and Wang, Di},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2025},
+  publisher={IEEE}
+}
+
 @article{zhao2023exploring,
   title={Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection},
   author={Zhao, Zhenghui and Ru, Lixiang and Wu, Chen},
