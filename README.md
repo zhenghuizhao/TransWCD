@@ -51,7 +51,7 @@ pip install -r requirments.txt
 ## B. Train and Test
 ```bash
 # train 
-python train_transwcd.py
+python train_transwcd_sa.py
 
 ```
 You can modify the corresponding implementation settings `WHU.yaml`, `LEVIR.yaml`, and `DSIFN.yaml` in `train_transwcd.py` for different datasets.
@@ -59,7 +59,7 @@ You can modify the corresponding implementation settings `WHU.yaml`, `LEVIR.yaml
 ###
 ```bash
 # test
-python test.py
+python test_sa.py
 ```
 Please remember to modify the corresponding configurations in `test.py`, and the visual results can be found at `transwcd/results/`
 

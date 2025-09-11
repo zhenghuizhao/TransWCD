@@ -74,8 +74,7 @@ class TransWCD_dual(nn.Module):
         cls_x4 = self.classifier(cls_x4)
         cls_x4 = cls_x4.view(-1, self.num_classes-1)
 
-        _c4 = self.dropout(_c4)     #
-        #pred_enc = self.linear_pred(_c4)
+
         return cls_x4
 
 
@@ -107,7 +106,7 @@ class TransWCD_single(nn.Module):
         self.classifier = nn.Conv2d(in_channels=self.in_channels[3], out_channels=self.num_classes-1, kernel_size=1,
                                     bias=False)
 
-        self.dropout = nn.Dropout2d(0.1)
+        self.dropout = nn.Dropout2d(0.5)
         #self.linear_pred = nn.Conv2d(self.in_channels[3], self.num_classes, kernel_size=1)
 
 
@@ -152,8 +151,6 @@ class TransWCD_single(nn.Module):
         cls_x4 = self.classifier(cls_x4)
         cls_x4 = cls_x4.view(-1, self.num_classes-1)
 
-        _c4 = self.dropout(_c4)     #
-        #pred_enc = self.linear_pred(_c4)
         return cls_x4
 
 
@@ -178,5 +175,4 @@ def conv_diff_s(in_channels, out_channels):
         nn.Conv2d(in_channels, out_channels, kernel_size=1),
         #nn.ReLU(),
     )
-
 

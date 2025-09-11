@@ -14,24 +14,26 @@ from tqdm import tqdm
 from datasets import weaklyCD
 from utils import evaluate_CD, imutils
 from utils.AverageMeter import AverageMeter
-from utils.camutils_CD import cam_to_label,multi_scale_cam
+from utils.camutils_CD import cam_to_label, multi_scale_cam
 from utils.optimizer import PolyWarmupAdamW
 from models.model_transwcd import TransWCD_dual, TransWCD_single
 
 import warnings
+
 warnings.filterwarnings("ignore")
 
 parser = argparse.ArgumentParser()
 # LEVIR/DSIFN/WHU.yaml
 parser.add_argument("--config",
-                    default='configs/LEVIR.yaml',
+                    default='configs/WHU.yaml',
                     type=str,
                     help="config")
 parser.add_argument("--pooling", default="gmp", type=str, help="pooling method")
 parser.add_argument("--crop_size", default=256, type=int, help="crop_size")
 parser.add_argument("--scheme", default='transwcd_dual', type=str, help="transwcd_dual or transwcd_single")
-parser.add_argument('--pretrained', default= True, type=bool, help="pretrained")
-parser.add_argument('--checkpoint_path', default= False, type=str, help="checkpoint_path" )
+parser.add_argument('--pretrained', default=True, type=bool, help="pretrained")
+parser.add_argument('--checkpoint_path', default=False, type=str, help="checkpoint_path")
+
 
 def setup_seed(seed):
     torch.manual_seed(seed)
@@ -39,6 +41,7 @@ def setup_seed(seed):
     np.random.seed(seed)
     random.seed(seed)
     torch.backends.cudnn.deterministic = True
+
 
 def setup_logger(filename='test.log'):
     logFormatter = logging.Formatter('%(asctime)s - %(filename)s - %(levelname)s: %(message)s')
@@ -53,6 +56,7 @@ def setup_logger(filename='test.log'):
     cHandler.setFormatter(logFormatter)
     logger.addHandler(cHandler)
 
+
 def cal_eta(time0, cur_iter, total_iter):
     time_now = datetime.datetime.now()
     time_now = time_now.replace(microsecond=0)
@@ -64,11 +68,13 @@ def cal_eta(time0, cur_iter, total_iter):
     eta = time_fin.replace(microsecond=0) - time_now
     return str(delta), str(eta)
 
+
 def get_down_size(ori_shape=(512, 512), stride=16):
     h, w = ori_shape
     _h = h // stride + 1 - ((h % stride) == 0)
     _w = w // stride + 1 - ((w % stride) == 0)
     return _h, _w
+
 
 def validate(model=None, data_loader=None, cfg=None):
     preds, gts, cams = [], [], []
@@ -83,7 +89,6 @@ def validate(model=None, data_loader=None, cfg=None):
             labels = labels.cuda()
             cls_label = cls_label.cuda()
 
-
             _cams = multi_scale_cam(model, inputs_A, inputs_B, cfg.cam.scales)
             resized_cam = F.interpolate(_cams, size=labels.shape[1:], mode='bilinear', align_corners=False)
             cam_label = cam_to_label(resized_cam, cls_label, cfg=cfg)
@@ -94,6 +99,7 @@ def validate(model=None, data_loader=None, cfg=None):
     cam_score = evaluate_CD.scores(gts, cams)
     model.train()
     return cam_score, labels
+
 
 def train(cfg):
     num_workers = 10
@@ -147,20 +153,20 @@ def train(cfg):
                                  pooling=args.pooling, )
     elif cfg.scheme == "transwcd_single":
         transwcd = TransWCD_single(backbone=cfg.backbone.config,
-                                 stride=cfg.backbone.stride,
-                                 num_classes=cfg.dataset.num_classes,
-                                 embedding_dim=256,
-                                 pretrained=args.pretrained,
-                                 pooling=args.pooling, )
+                                   stride=cfg.backbone.stride,
+                                   num_classes=cfg.dataset.num_classes,
+                                   embedding_dim=256,
+                                   pretrained=args.pretrained,
+                                   pooling=args.pooling, )
     else:
         print("Please choose a baseline structure in /configs/...yaml")
 
-    #logging.info('\nNetwork config: \n%s' % (transwcd))
+    # logging.info('\nNetwork config: \n%s' % (transwcd))
     param_groups = transwcd.get_param_groups()
     transwcd.to(device)
 
     writer = SummaryWriter(cfg.work_dir.logger_dir)
-    print('writer:',writer)
+    print('writer:', writer)
 
     optimizer = PolyWarmupAdamW(
         params=[
@@ -233,7 +239,6 @@ def train(cfg):
         optimizer.step()
 
         if (n_iter + 1) % cfg.train.log_iters == 0:
-
             delta, eta = cal_eta(time0, n_iter + 1, cfg.train.max_iters)
             cur_lr = optimizer.param_groups[0]['lr']
 
@@ -248,8 +253,8 @@ def train(cfg):
 
             grid_pred_cam = imutils.tensorboard_label(labels=pred_cam)
 
-            writer.add_image("train/images_A"+str(img_name), grid_imgs_A, global_step=n_iter)
-            writer.add_image("train/images_B"+str(img_name), grid_imgs_B, global_step=n_iter)
+            writer.add_image("train/images_A" + str(img_name), grid_imgs_A, global_step=n_iter)
+            writer.add_image("train/images_B" + str(img_name), grid_imgs_B, global_step=n_iter)
             writer.add_image("cam/valid_cams_A", grid_cam_A, global_step=n_iter)
             writer.add_image("cam/valid_cams_B", grid_cam_B, global_step=n_iter)
             writer.add_image("train/preds_cam", grid_pred_cam, global_step=n_iter)
@@ -259,23 +264,25 @@ def train(cfg):
 
         if (n_iter + 1) % cfg.train.eval_iters == 0:
             ckpt_name = os.path.join(cfg.work_dir.ckpt_dir, "transwcd_iter_%d.pth" % (n_iter + 1))
-            print('CD Validating...')
+            logging.info('CD Validating...')
             torch.save(transwcd.state_dict(), ckpt_name)
-            cam_score, labels = validate(model=transwcd, data_loader=val_loader, cfg=cfg)   # _ 为 labels
-            print(cfg.scheme)
-            print(cam_score)
+            cam_score, labels = validate(model=transwcd, data_loader=val_loader, cfg=cfg)  # _ 为 labels
 
-            if  cam_score['f1'][1]> best_F1:
+            if cam_score['f1'][1] > best_F1:
                 best_F1 = cam_score['f1'][1]
-                best_iter = n_iter+1
-            print("[best_iter]:", best_iter)
-            print()
+                best_iter = n_iter + 1
+            logging.info("cams score: %s, \n[best_iter]: %s", cam_score, best_iter)
+
+            if cam_score['f1'][1] > best_F1:
+                best_F1 = cam_score['f1'][1]
+                best_iter = n_iter + 1
+
     return True
+
 
 if __name__ == "__main__":
     args = parser.parse_args()
     cfg = OmegaConf.load(args.config)
-
 
     timestamp = "{0:%Y-%m-%d-%H-%M}".format(datetime.datetime.now())
 
@@ -293,4 +300,3 @@ if __name__ == "__main__":
 
     setup_seed(1)
     train(cfg=cfg)
-
