@@ -1,5 +1,6 @@
-# TransWCD: Transformer-based Weakly-Supervised Change Detection Baselines
-## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853)
+# TransWCD: Transformer-based Weakly-Supervised Change Detection
+## :notebook_with_decorative_cover: Code for Paper: Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection [[arXiv]](https://arxiv.org/abs/2307.10853) 
+Accepted to IEEE TGRS as: TransWCD: A Scene-Adaptive Joint-Constrained Framework for Weakly-Supervised Change Detection
 
 ## Update
 | :zap:        | Higher-performing TransWCD baselines have been released, with F1 score of +2.47 on LEVIR-CD and +5.72 on DSIFN-CD compared to those mentioned in our paper. |
@@ -7,7 +8,7 @@
 ##
 
 ## Abastract <p align="justify">
-<blockquote align="justify">Weakly-supervised change detection (WSCD) aims to detect pixel-level changes with only image-level annotations. Owing to its label efficiency, WSCD is drawing increasing attention recently. However, current WSCD methods often encounter the challenge of change missing and fabricating, i.e., the inconsistency between image-level annotations and pixel-level predictions. Specifically, change missing refers to the situation that the WSCD model fails to predict any changed pixels, even though the image-level label indicates change, and vice versa for change fabricating. To address this challenge, in this work, we leverage global-scale and local-scale priors in WSCD and propose two components: a Dilated Prior (DP) decoder and a Label Gated (LG) constraint. The DP decoder decodes samples with the changed image-level label, skips samples with the unchanged label, and replaces them with an all-unchanged pixel-level label. The LG constraint is derived from the correspondence between changed representations and image-level labels, penalizing the model when it mispredicts the change status. Additionally, we develop TransWCD, a simple yet powerful transformer-based model, showcasing the potential of weakly-supervised learning in change detection. By integrating the DP decoder and LG constraint into TransWCD, we form TransWCD-DL. Our proposed TransWCD and TransWCD-DL achieve significant +6.33% and +9.55% F1 score improvements over the state-of-the-art methods on the WHU-CD dataset, respectively. Some performance metrics even exceed several fully-supervised change detection (FSCD) competitors.Code will be available at this https URL.</blockquote>
+<blockquote align="justify">Weakly-supervised change detection (WSCD) aims to detect pixel-level changes with only image-level (i.e., scene-level) annotations. We develop TransWCD, a simple yet powerful transformer-based model, showcasing the potential of weakly-supervised learning in change detection. 
 </p>
 
 
@@ -16,9 +17,7 @@
     <img src="./tutorials/TransWCD.png" width="75%" height="75%">
 </p>
 
-## :speech_balloon: TransWCD-DL Architecture:
 
-![TransWCD-DL](./tutorials/TransWCD-DL.png)
 
 ##
 ## A. Preparations
@@ -67,16 +66,26 @@ Please remember to modify the corresponding configurations in `test.py`, and the
 ## C. Performance and Best Models
 | TransWCD      |    WHU-CD |             LEVIR-CD |             DSIFN-CD |
 |:--------------:|:----------:|:---------------------:|:---------------------:|  
-| Single-Stream | 67.81/[best model](https://drive.google.com/file/d/1ZK9aNG-RG26ybLGAu9NqaG3-yPChL4Kx/view?usp=drive_link) | 51.06/[best model](https://drive.google.com/file/d/1z_7e057spJPP4BW_6Ujz8ws-PZ-GWufA/view?usp=drive_link) | 57.28/[best model](https://drive.google.com/file/d/1i9farsfLxDQBUxxfhjjOJz1zNgjavjoI/view?usp=drive_link) | 
-| Dual-Stream   | 68.73/[best model](https://drive.google.com/file/d/1us1TCqkSfjNjuubasXmRN0vBJ2OAI2vl/view?usp=drive_link) | 62.55/[best model](https://drive.google.com/file/d/1cpr3ICsR4Ro5XtWA3I8RzDNzxkp1A_Fz/view?usp=drive_link) | 59.13/[best model](https://drive.google.com/file/d/1oGSlT64WRuzyY1vqmXb1Y55T0VrBJnhn/view?usp=drive_link) | 
+| Single-Stream | 67.81/[Best model](https://drive.google.com/file/d/1ZK9aNG-RG26ybLGAu9NqaG3-yPChL4Kx/view?usp=drive_link) | 51.06/[Best model](https://drive.google.com/file/d/1z_7e057spJPP4BW_6Ujz8ws-PZ-GWufA/view?usp=drive_link) | 57.28/[Best model](https://drive.google.com/file/d/1i9farsfLxDQBUxxfhjjOJz1zNgjavjoI/view?usp=drive_link) | 
+| Dual-Stream   | 68.73/[Best model](https://drive.google.com/file/d/1us1TCqkSfjNjuubasXmRN0vBJ2OAI2vl/view?usp=drive_link) | 62.55/[Best model](https://drive.google.com/file/d/1cpr3ICsR4Ro5XtWA3I8RzDNzxkp1A_Fz/view?usp=drive_link) | 59.13/[Best model](https://drive.google.com/file/d/1oGSlT64WRuzyY1vqmXb1Y55T0VrBJnhn/view?usp=drive_link) | 
 
-*Average F1 Score / best model
+*Average F1 score / Best model
+
+On both WHU-CD and LEVIR-CD datasets, the test performance closely matches that of the validation, with differences < 3% F1 score. 
 
 
 ## Citation
 If it's helpful to your research, please kindly cite. Here is an example BibTeX entry:
 
 ``` bibtex
+@article{zhao2025transwcd,
+  title={TransWCD: Scene-Adaptive Joint Constrained Framework for Weakly-Supervised Change Detection},
+  author={Zhao, Zhenghui and Ru, Lixiang and Wu, Chen and Wang, Di},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2025},
+  publisher={IEEE}
+}
+
 @article{zhao2023exploring,
   title={Exploring Effective Priors and Efficient Models for Weakly-Supervised Change Detection},
   author={Zhao, Zhenghui and Ru, Lixiang and Wu, Chen},
