@@ -34,7 +34,7 @@ class TransWCD_dual(nn.Module):
         self.classifier = nn.Conv2d(in_channels=self.in_channels[3], out_channels=self.num_classes-1, kernel_size=1,
                                     bias=False)
 
-        self.dropout = nn.Dropout2d(0.1)
+        self.dropout = nn.Dropout2d(0.2)
         self.linear_pred = nn.Conv2d(self.in_channels[3], self.num_classes, kernel_size=1)
 
 
@@ -65,6 +65,7 @@ class TransWCD_dual(nn.Module):
 
         ### difference module ###
         _c4 = self.diff_c4(torch.cat((_c4_1, _c4_2), dim=1))
+        _c4 = self.dropout(_c4)
 
         if cam_only:
             cam_s4 = F.conv2d(_c4, self.classifier.weight).detach()
@@ -106,7 +107,7 @@ class TransWCD_single(nn.Module):
         self.classifier = nn.Conv2d(in_channels=self.in_channels[3], out_channels=self.num_classes-1, kernel_size=1,
                                     bias=False)
 
-        self.dropout = nn.Dropout2d(0.5)
+        self.dropout = nn.Dropout2d(0.2)
         #self.linear_pred = nn.Conv2d(self.in_channels[3], self.num_classes, kernel_size=1)
 
 
@@ -142,6 +143,7 @@ class TransWCD_single(nn.Module):
         _x = self.encoder(x)
 
         _, _, _, _c4 = _x
+        _c4 = self.dropout(_c4)
 
         if cam_only:
             cam_s4 = F.conv2d(_c4, self.classifier.weight).detach()
