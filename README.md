@@ -78,12 +78,14 @@ On both WHU-CD and LEVIR-CD datasets, the test performance closely matches that 
 If it's helpful to your research, please kindly cite. Here is an example BibTeX entry:
 
 ``` bibtex
-@article{zhao2025transwcd,
-  title={TransWCD: Scene-Adaptive Joint Constrained Framework for Weakly-Supervised Change Detection},
+@ARTICLE{zhao2025transwcd,
   author={Zhao, Zhenghui and Ru, Lixiang and Wu, Chen and Wang, Di},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={TransWCD: Scene-Adaptive Joint Constrained Framework for Weakly Supervised Change Detection}, 
   year={2025},
-  publisher={IEEE}
+  volume={63},
+  pages={1-12},
+  doi={10.1109/TGRS.2025.3545051}
 }
 
 @article{zhao2023exploring,
